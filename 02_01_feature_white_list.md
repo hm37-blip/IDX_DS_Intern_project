@@ -1,21 +1,42 @@
-**core features**
-*close_price: Target variable
-*PropertyType: Residental
-*PropertySubType: Single Family Residenc
+# 📊 Feature Selection
 
-**baseline features**
-LivingArea
-LotSizeSquareFeet
-BedroomsTotal
-BathroomsTotalInteger
+## 🎯 Target Variable
 
-**other deatures**
-YearBuilt
-Latitude & Longitude
-PostalCode
-AssociationFee
-ParkingTotal
-StoriesTotal
-HeatingYN / CoolingYN
-PropertyCondition
+| Feature | Description |
+|---------|-------------|
+| **close_price** | Target variable to predict |
 
+---
+
+## 🏠 Core Features
+
+| Feature | Description |
+|---------|-------------|
+| **PropertyType** | Residential |
+| **PropertySubType** | Single Family Residence |
+
+---
+
+## 📌 Baseline Features
+
+These are the primary structural features used in the baseline model.
+
+- **LivingArea**
+- **LotSizeSquareFeet**
+- **BedroomsTotal**
+- **BathroomsTotalInteger**
+
+---
+
+## ➕ Additional Features
+
+Additional variables considered to improve model performance.
+
+| Category | Features |
+|----------|----------|
+| 🏗️ Property Information | `YearBuilt`, `PropertyCondition` |
+| 📍 Location | `Latitude`, `Longitude`, `PostalCode` |
+| 💰 Financial | `AssociationFee` |
+| 🚗 Parking | `ParkingTotal` |
+| 🏢 Building Structure | `StoriesTotal` |
+| 🌡️ Amenities | `HeatingYN`, `CoolingYN` |
