@@ -1,0 +1,37 @@
+# 1. Import basic data science libraries
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Set visualization style
+sns.set_theme(style="whitegrid")
+print("Libraries imported successfully.")
+
+# 2. Define feature whitelist to optimize memory usage
+whitelist_cols = [
+    'ClosePrice', 'PropertyType', 'PropertySubType', 
+    'LivingArea', 'LotSizeSquareFeet', 'BedroomsTotal', 'BathroomsTotalInteger',
+    'YearBuilt', 'Latitude', 'Longitude', 'PostalCode', 'AssociationFee', 'GarageSpaces'
+]
+
+# 3. Load and Filter Data
+# IMPORTANT: Replace 'CRMLSSold_sample.csv' with your actual downloaded file name!
+file_name = 'CRMLSSold_sample.csv' 
+
+try:
+    # Load only the specified columns
+    df_raw = pd.read_csv(file_name, usecols=whitelist_cols)
+    print(f"Raw data loaded. Shape: {df_raw.shape}")
+    
+    # Filter strictly for Residential Single Family Residences
+    df_filtered = df_raw[
+        (df_raw['PropertyType'] == 'Residential') & 
+        (df_raw['PropertySubType'] == 'Single Family Residence')
+    ]
+    print(f"Data filtered (Residential SFR only). Final Shape: {df_filtered.shape}")
+    
+    # Display the first 5 rows to verify
+    display(df_filtered.head())
+
+except FileNotFoundError:
+    print(f"File {file_name} not found. Please ensure the CSV is in the correct directory.")
